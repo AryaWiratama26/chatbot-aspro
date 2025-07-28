@@ -1,0 +1,242 @@
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 0;
+    margin-bottom: 0;
+}
+
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+/* Chatbot Styles */
+.chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.chatbot-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    max-height: 380px;
+    background: #f8f9fa;
+}
+
+.message {
+    margin-bottom: 15px;
+    animation: fadeInUp 0.3s ease;
+}
+
+.message-content {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.user-message .message-content {
+    background: var(--primary-color);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.bot-message .message-content {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 5px;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.bot-message .message-time {
+    text-align: left;
+}
+
+.chatbot-input {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 0 0 15px 15px;
+}
+
+.chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot-typing {
+    display: none;
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 18px;
+    border-bottom-left-radius: 5px;
+    max-width: 80%;
+    margin-bottom: 15px;
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6c757d;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    30% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card enhancements */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button enhancements */
+.btn {
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chatbot-widget {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+        height: 450px;
+    }
+    
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utility classes */
+.border-left-primary {
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+.border-left-success {
+    border-left: 4px solid var(--success-color) !important;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
