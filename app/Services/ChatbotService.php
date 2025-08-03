@@ -19,14 +19,13 @@ class ChatbotService
     public function generateResponse($userMessage)
     {
         try {
-            // Cari informasi relevan
             $knowledgeData = $this->searchKnowledgeBase($userMessage);
             $announcementData = $this->searchAnnouncements($userMessage);
 
-            // Bangun context
+            
             $context = $this->buildContext($knowledgeData, $announcementData);
 
-            // Panggil Groq API
+            
             return $this->callGroqAPI($userMessage, $context);
 
         } catch (Exception $e) {
