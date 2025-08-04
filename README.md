@@ -17,3 +17,8 @@ Jadi di website ini ada 2, tabel yang yaitu table knowledge (yang nantinya digun
 ![2](/ss/tambah-pengumuman.png)
 ![3](/ss/tanya-informasi.png)
 ![4](/ss/tanya-modul.png)
+
+### Database Tabel
+
+![5](/ss/an-db.png)
+![6](/ss/kn-db.png)
